@@ -27,16 +27,27 @@ function setActiveStyle(color) {
 }
 
 /* ==================== Theme Colors ==================== */
-const dayNight = document.querySelector(".day-night");
-dayNight.addEventListener("click", () => {
-  dayNight.querySelector("i").classList.toggle("fa-sun");
-  dayNight.querySelector("i").classList.toggle("fa-moon");
-  document.body.classList.toggle("dark");
-});
-window.addEventListener("load", () => {
+function updateIcon() {
   if (document.body.classList.contains("dark")) {
-    dayNight.querySelector("i").classList.add("fa-sun");
+    icon.classList.add("fa-sun");
+    icon.classList.remove("fa-moon");
   } else {
-    dayNight.querySelector("i").classList.add("fa-moon");
+    icon.classList.add("fa-moon");
+    icon.classList.remove("fa-sun");
   }
+}
+
+dayNight.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  updateIcon();
+});
+
+window.addEventListener("load", () => {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (prefersDark) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+  updateIcon();
 });
