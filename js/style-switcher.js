@@ -30,18 +30,18 @@ function setActiveStyle(color) {
 const dayNight = document.querySelector(".day-night");
 const icon = dayNight.querySelector("i");
 
-// Function to set icon based on current theme
 function updateIcon() {
-  if (document.body.classList.contains("dark")) {
-    icon.classList.add("fa-sun");
-    icon.classList.remove("fa-moon");
-  } else {
-    icon.classList.add("fa-moon");
-    icon.classList.remove("fa-sun");
-  }
+  icon.className = document.body.classList.contains("dark") ? "fa fa-sun" : "fa fa-moon";
 }
 
 dayNight.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+  updateIcon();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark");
+  }
   updateIcon();
 });
