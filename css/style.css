@@ -39,6 +39,9 @@ ul {
     list-style: none;
 }
 
+.logo, .nav, .btn, img {
+    user-select: none;
+}
 
 .section {
     background: var(--bg-black-900);
