@@ -45,13 +45,3 @@ dayNight.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   updateIcon();
 });
-
-window.addEventListener("load", () => {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (prefersDark) {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
-  updateIcon();
-});
