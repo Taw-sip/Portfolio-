@@ -844,4 +844,10 @@ h3.my-profession {
     .section.open {
         left: 0;
     }
+    .section {
+            padding: 0 12px;
+    }
+    .row {
+        margin-right: 0;
+    }
 }
